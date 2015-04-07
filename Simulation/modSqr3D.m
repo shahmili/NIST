@@ -1,4 +1,8 @@
 function Pth = modSqr3D(nPts)
+% This creates a curved planar square path in 3D
+%
+% Mili Shah
+% March 2015
 close all
 Pts = [...
     4251,4251,5050,5750,6450,7251,7251,7251,6450,5750,5050,4251,4251;
