@@ -1,4 +1,4 @@
-function [NewOffPth]=PathGiven3D(Pth,xof,yof,zof,aof,xnoise,ynoise,znoise,obx,oby,dimxmin,dimxmax,dimymin,dimymax,spd,draw)
+function [NewOffPth,NewPth]=PathGiven3D(Pth,xof,yof,zof,aof,xnoise,ynoise,znoise,obx,oby,dimxmin,dimxmax,dimymin,dimymax,spd,draw)
 % Inputs
 % Pth = 3xn matrix describing the true path
 %   where
@@ -55,7 +55,7 @@ for i = 1:nPts
         NewOffPth(4:7,i) = rot2q(Rn)';
         old = Pth(1:3,i);
     else
-        R = q2rot(Pth(4:7,i-1));
+        R = q2rot(Pth(4:7,i));
         new = Pth(1:3,i);
         NewPth(1:3,i) = Roff*(new-old)+NewPth(1:3,i-1);
         NewOffPth(1:3,i) = R*Roff*[xof;yof;zof] + NewPth(1:3,i);
